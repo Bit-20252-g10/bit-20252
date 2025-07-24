@@ -1,17 +1,11 @@
-import "dotenv/config";
-import express from 'express';
-import databaseConnection from './config/db.js';
-import userRoutes from './routers/userRoutes.js';
-import { getAllUser } from '../controllers/userController.js';
 import { Router } from 'express';
-
+import { createUser, getAllusers, loginUser } from '../controllers/index.js';
 
 const router = Router();
 
-router.get('/users', getAllUser);
+router.get('/users', getAllusers);
 router.post('/users', createUser);
 router.post('/users/login', loginUser); // idempotencia
-
 
 
 
