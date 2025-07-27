@@ -2,15 +2,20 @@ import dotenv from "dotenv";
 import express from "express";
 import connectDB from "./src/config/db.js";
 import userRoutes from "./src/routers/index.js";
+import cors from "cors";
+
 
 dotenv.config({ path: "./.env" });
 connectDB();
 
 const app = express();
+app.use(cors({
+  origin: 'http://localhost:4200'
+}))
 app.use(express.json());
 app.use('/api', userRoutes);
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3005;
 
 app.listen(PORT, () => {
   console.log(`El servidor se está ejecutando en el puerto ${PORT}`);
