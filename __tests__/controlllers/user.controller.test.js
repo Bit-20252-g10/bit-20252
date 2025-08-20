@@ -20,7 +20,7 @@ describe('Get All Users', () => {
         }
         const mockUserList = [];
         const mockFilterDB = {}
-
+        // Act 
         // llamar al metodo del controlador
         User.find.mockResolvedValue(mockUserList);
         await getAllUsers(req,res);
